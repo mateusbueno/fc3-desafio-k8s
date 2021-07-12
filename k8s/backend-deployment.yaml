@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend    
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "backend"
+    spec:
+      containers:
+        - name: backend
+          image: "mateusob/fc3-desafio-backend:latest"
+          ports:
+            - containerPort: 3000
